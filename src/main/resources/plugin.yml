@@ -1,0 +1,17 @@
+name: GuoScript
+version: ${project.version}
+main: org.formidable.guoscript.GuoScript
+api-version: 1.13
+authors: [GayaGuoguo]
+softdepend:
+  - 'PlaceholderAPI'
+  - 'Vault'
+commands:
+  gs:
+    description: 此插件主要指令
+  gsi:
+    description: 物品管理器指令
+  gsd:
+    description: 数据管理器指令
+  gsc:
+    description: 指令型脚本指令

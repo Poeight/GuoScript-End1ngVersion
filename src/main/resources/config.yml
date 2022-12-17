@@ -1,0 +1,14 @@
+mysql:
+  enable: false
+  url: 'jdbc:mysql://localhost:3306/minecraft'
+  username: 'root'
+  password: 'password'
+  table: 'gsd'
+settings:
+  # 是否生成例子脚本文件
+  createExample: true
+  # 脚本使用的语言
+  # 英文：en
+  # 中文：zh
+  # 全部：*
+  scriptLang: '*'

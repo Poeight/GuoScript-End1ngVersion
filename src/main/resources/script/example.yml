@@ -1,0 +1,33 @@
+脚本1:
+  - 'message(hello world!)->*'
+  - '发送信息(你好，世界!)->*'
+石头商店:
+- 'hasMoney(%player%:100)->enough->less'
+- 'if(!enough)->message(&c购买失败，石头的售价为&e100元&c，你还缺&e%less%元)->%player%'
+- 'if(!enough)->stop'
+- 'console(give %player% 1 1)'
+- 'message(&a购买成功!)->%player%'
+- 'addMoney(-100)->%player%'
+石头商店zh:
+- '拥有金钱(%player%:100)->足够->缺少'
+- '判断(!足够)->发送信息(&c购买失败，石头的售价为&e100元&c，你还缺&e%缺少%元)->%player%'
+- '判断(!足够)->stop'
+- '后台指令(give %player% 1 1)'
+- '发送信息(&a购买成功!)->%player%'
+- '给予金钱(-100)->%player%'
+抽奖:
+# 判断奖券
+- 'hasItem(%player%:抽奖券:3)->拥有抽奖券->缺值'
+- 'if(!拥有抽奖券)->message(&c进行抽奖需要&e3&c张抽奖券，你还缺少&e%缺值%&c张)->%player%'
+- 'if(!拥有抽奖券)->stop'
+- 'addItem(抽奖券:-3)->%player%'
+# 随机条件
+- 'weighted<-一等奖:10<-二等奖:20<-三等奖:30<-谢谢参与:40'
+# 处理奖励
+- 'if(谢谢参与)->message(&c很遗憾，您什么都没有抽到，谢谢参与)->%player%'
+- 'if(一等奖)->message(&a恭喜您抽到一等奖)->%player%'
+- 'if(一等奖)->addItem(一等奖奖品:1)->%player%'
+- 'if(二等奖)->message(&a恭喜您抽到二等奖)->%player%'
+- 'if(二等奖)->addItem(二等奖奖品:1)->%player%'
+- 'if(三等奖)->message(&a恭喜您抽到三等奖)->%player%'
+- 'if(三等奖)->addItem(三等奖奖品:1)->%player%'
